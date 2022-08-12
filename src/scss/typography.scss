@@ -1,0 +1,56 @@
+@use "utilities" as *;
+
+body {
+  font-family: $font-family;
+  color: $pale-blue;
+  line-height: 1.5;
+}
+
+h1 {
+  font-weight: $medium;
+  @include lg {
+    font-size: $font-large-main-title;
+    font-weight: $light;
+  }
+}
+
+h2 {
+  font-weight: $medium;
+  font-size: $font-data;
+  @include lg {
+    font-size: $font-large-data;
+    font-weight: $light;
+  }
+}
+
+#report,
+button,
+.previous {
+  color: $desaturated-blue;
+}
+
+button:hover,
+button.active {
+  color: $pale-blue;
+  font-weight: $bold;
+}
+
+.submenu-button {
+  font-weight: $bold;
+  font-size: $font-data;
+  letter-spacing: -2px;
+  line-height: 5px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: $font-title;
+}
+
+.title::after {
+  font-weight: $bold;
+}
+
+.previous {
+  font-weight: $light;
+}

@@ -1,0 +1,71 @@
+/*colors*/
+$blue: hsl(246, 80%, 60%);
+$red-work: hsl(15, 100%, 70%);
+$blue-play: hsl(195, 74%, 62%);
+$red-study: hsl(348, 100%, 68%);
+$green-exercise: hsl(145, 58%, 55%);
+$violet-social: hsl(264, 64%, 52%);
+$orange-care: hsl(43, 84%, 65%);
+$very-dark-blue: hsl(226, 43%, 10%);
+$dark-blue: hsl(235, 46%, 20%);
+$desaturated-blue: hsl(235, 45%, 61%);
+$pale-blue: hsl(236, 100%, 87%);
+
+/*fonts*/
+$font-family: 'Rubik', sans-serif;
+$light: 300;
+$medium: 400;
+$bold: 500;
+$font-title: 18px;
+$font-data: 2rem;
+$font-large-data: 3rem;
+$font-large-main-title: 2.5rem;
+
+/*images*/
+$ellipsis: url(../../images/icon-ellipsis.svg);
+$exercise: url(../../images/icon-exercise.svg);
+$play: url(../../images/icon-play.svg);
+$self-care: url(../../images/icon-self-care.svg);
+$social: url(../../images/icon-social.svg);
+$study: url(../../images/icon-study.svg);
+$work: url(../../images/icon-work.svg);
+$jeremy: url(../../images/image-jeremy.png);
+
+$border-radius: 13px;
+
+/*breakpoints*/
+
+$breakpoints: (
+    'xs': 0,
+    's': 480px,
+    'md': 720px,
+    'lg': 960px,
+    'xl': 1200px
+);
+
+/*mixins*/
+@mixin xs {
+    @media (min-width: map-get($breakpoints, 'xs')) {
+        @content;
+    }
+}
+    @mixin s {
+    @media (min-width: map-get($breakpoints, 's')) {
+        @content;
+    }
+}
+@mixin md {
+    @media (min-width: map-get($breakpoints, 'md')) {
+        @content;
+    }
+}
+@mixin lg {
+    @media (min-width: map-get($breakpoints, 'lg')) {
+        @content;
+    }
+}
+@mixin xl {
+    @media (min-width: map-get($breakpoints, 'xl')) {
+        @content;
+    }
+}
