@@ -28,23 +28,28 @@ const createCard = (title, timeframe, currentElem, previousElem) => {
   wrappers.forEach((wrapper) => wrapper.classList.add("animate"));
 };
 
-const fetchData = (timeframe = "weekly") => {
-  fetch("./data.json")
-    .then((res) => res.json())
-    .then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        let titleData = data[i].title;
-        let timeframes = Object.entries(data[i].timeframes);
-        for (let j = 0; j < timeframes.length; j++) {
-          if (timeframe === timeframes[j][0]) {
-            let timeframeData = timeframes[j][0];
-            let currentData = timeframes[j][1].current;
-            let previousData = timeframes[j][1].previous;
-            createCard(titleData, timeframeData, currentData, previousData);
-          }
+const fetchData = async (timeframe = "weekly") => {
+  try {
+    const response = await fetch("./data.json");
+    if (!response.ok) {
+      throw new Error("something bad happened");
+    }
+    const data = await response.json();
+    for (let i = 0; i < data.length; i++) {
+      let titleData = data[i].title;
+      let timeframes = Object.entries(data[i].timeframes);
+      for (let j = 0; j < timeframes.length; j++) {
+        if (timeframe === timeframes[j][0]) {
+          let timeframeData = timeframes[j][0];
+          let currentData = timeframes[j][1].current;
+          let previousData = timeframes[j][1].previous;
+          createCard(titleData, timeframeData, currentData, previousData);
         }
       }
-    });
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const timeframeHandler = (e) => {
